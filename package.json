@@ -1,0 +1,33 @@
+{
+  "name": "tridevil",
+  "version": "0.0.1",
+  "description": "My first attempt to create a WEBGL project using three.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/georgezappa/tridevil.git"
+  },
+  "keywords": [
+    "node",
+    "three.js",
+    "WEBGL",
+    "javascript"
+  ],
+  "author": "georgezappa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/georgezappa/tridevil/issues"
+  },
+  "homepage": "https://github.com/georgezappa/tridevil#readme",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5"
+  }
+}
