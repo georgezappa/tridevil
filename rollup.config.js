@@ -7,9 +7,9 @@ import { terser } from 'rollup-plugin-terser';
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-  input: 'src/main.js',
+  input: 'public/bundle.js',
   output: {
-    file: 'public/bundle.js',
+    file: 'build/bundle.js',
     format: 'iife', // immediately-invoked function expression — suitable for <script> tags
     sourcemap: true
   },
@@ -19,3 +19,17 @@ export default {
     production && terser() // minify, but only in production
   ]
 };
+
+
+import { rollup } from 'rollup';
+import babel from 'rollup-plugin-babel';
+
+rollup.rollup({
+  entry: "src/main.js",
+  plugins: [babel()]
+}).then(function (bundle) {
+  bundle.write({
+    dest: "dist/bundle.js",
+    format: "umd"
+  });
+});
