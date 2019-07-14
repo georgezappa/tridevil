@@ -1,16 +1,17 @@
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
-import { terser } from 'rollup-plugin-terser';
+import resolve from "rollup-plugin-node-resolve";
+import commonjs from "rollup-plugin-commonjs";
+import { terser } from "rollup-plugin-terser";
 
 // `npm run build` -> `production` is true
 // `npm run dev` -> `production` is false
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-  input: 'public/bundle.js',
+  input:
+    "public/bundle.js vendor/three/OrbitControls.js,vendor/three/three.module.js",
   output: {
-    file: 'build/bundle.js',
-    format: 'iife', // immediately-invoked function expression — suitable for <script> tags
+    file: "build/bundle.js",
+    format: "iife", // immediately-invoked function expression — suitable for <script> tags
     sourcemap: true
   },
   plugins: [
@@ -20,16 +21,17 @@ export default {
   ]
 };
 
+import { rollup } from "rollup";
+import babel from "rollup-plugin-babel";
 
-import { rollup } from 'rollup';
-import babel from 'rollup-plugin-babel';
-
-rollup.rollup({
-  entry: "src/main.js",
-  plugins: [babel()]
-}).then(function (bundle) {
-  bundle.write({
-    dest: "dist/bundle.js",
-    format: "umd"
+rollup
+  .rollup({
+    entry: "src/main.js",
+    plugins: [babel()]
+  })
+  .then(function(bundle) {
+    bundle.write({
+      dest: "dist/bundle.js",
+      format: "umd"
+    });
   });
-});
