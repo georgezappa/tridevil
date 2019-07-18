@@ -6,7 +6,7 @@
   "author": "georgezappa",
   "scripts": {
     "start": "serve build",
-    "build": "babel src/main.js vendor/three/OrbitControls.js vendor/three/three.module.js -d public && rollup -c rollout.config.js",
+    "build": "babel src/main.js src/main.d.ts -d public  && rollup -c rollout.config.js",
     "watch": "rollup -c -w",
     "dev": "npm-run-all --parallel start watch",
     "deploy": "",

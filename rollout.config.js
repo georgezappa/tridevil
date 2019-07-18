@@ -7,11 +7,10 @@ import { terser } from "rollup-plugin-terser";
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-  input:
-    "public/main.js public/sum.js vendor/three/OrbitControls.js vendor/three/three.module.js",
+  input: "public/main.js",
   output: {
     file: "build/bundle.js",
-    format: "iife", // immediately-invoked function expression — suitable for <script> tags
+    format: "cjs", // immediately-invoked function expression — suitable for <script> tags
     sourcemap: true
   },
   plugins: [
