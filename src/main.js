@@ -1,10 +1,11 @@
 // First, let's import three
 import * as THREE from "../vendor/three/three.module.js";
+import OrbitControls from "../vendor/three/OrbitControls.js";
 
 // these need to be accessed inside more than one function so we'll declare them first
 let container;
 let camera;
-//let controls;
+let controls;
 let renderer;
 let scene;
 let mesh;
@@ -39,9 +40,12 @@ function createCamera() {
   camera.position.set(-4, 4, 10);
 }
 
+/**   new THREE.OrbitControls(camera, container);  **/
 function createControls() {
-  // controls = new THREE.OrbitControls(camera, container);
-  new THREE.OrbitControls(camera, container);
+  controls = new OrbitControls(camera, container);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.25;
+  controls.enableZoom = false;
 }
 
 function createLights() {

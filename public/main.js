@@ -2,16 +2,20 @@
 
 var THREE = _interopRequireWildcard(require("../vendor/three/three.module.js"));
 
+var _OrbitControls = _interopRequireDefault(require("../vendor/three/OrbitControls.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 // First, let's import three
 // these need to be accessed inside more than one function so we'll declare them first
-let container;
-let camera; //let controls;
-
-let renderer;
-let scene;
-let mesh;
+var container;
+var camera;
+var controls;
+var renderer;
+var scene;
+var mesh;
 
 function init() {
   container = document.querySelector("#scene-container");
@@ -37,29 +41,33 @@ function createCamera() {
   );
   camera.position.set(-4, 4, 10);
 }
+/**   new THREE.OrbitControls(camera, container);  **/
+
 
 function createControls() {
-  // controls = new THREE.OrbitControls(camera, container);
-  new THREE.OrbitControls(camera, container);
+  controls = new _OrbitControls.default(camera, container);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.25;
+  controls.enableZoom = false;
 }
 
 function createLights() {
-  const ambientLight = new THREE.HemisphereLight(0xddeeff, // sky color
+  var ambientLight = new THREE.HemisphereLight(0xddeeff, // sky color
   0x202020, // ground color
   5 // intensity
   );
-  const mainLight = new THREE.DirectionalLight(0xffffff, 5);
+  var mainLight = new THREE.DirectionalLight(0xffffff, 5);
   mainLight.position.set(10, 10, 10);
   scene.add(ambientLight, mainLight);
 }
 
 function createMeshes() {
-  const geometry = new THREE.BoxBufferGeometry(2, 2, 2);
-  const textureLoader = new THREE.TextureLoader();
-  const texture = textureLoader.load("textures/uv_test_bw.png");
+  var geometry = new THREE.BoxBufferGeometry(2, 2, 2);
+  var textureLoader = new THREE.TextureLoader();
+  var texture = textureLoader.load("textures/uv_test_bw.png");
   texture.encoding = THREE.sRGBEncoding;
   texture.anisotropy = 16;
-  const material = new THREE.MeshStandardMaterial({
+  var material = new THREE.MeshStandardMaterial({
     map: texture
   });
   mesh = new THREE.Mesh(geometry, material);

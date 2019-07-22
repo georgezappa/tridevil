@@ -5,8 +5,8 @@
   "main": "main.js",
   "author": "georgezappa",
   "scripts": {
-    "start": "serve build",
-    "build": "babel src/main.js src/main.d.ts -d public  && rollup -c rollout.config.js",
+    "start": "serve ",
+    "build": "babel src -d public --copy-files && rollup -c rollout.config.js",
     "watch": "rollup -c -w",
     "dev": "npm-run-all --parallel start watch",
     "deploy": "",

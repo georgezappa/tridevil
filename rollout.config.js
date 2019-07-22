@@ -10,7 +10,8 @@ export default {
   input: "public/main.js",
   output: {
     file: "build/bundle.js",
-    format: "cjs", // immediately-invoked function expression — suitable for <script> tags
+    //    format: "iife", // immediately-invoked function expression — suitable for <script> tags
+    format: "cjs", // commonJS — not suitable for <script> tags
     sourcemap: true
   },
   plugins: [
