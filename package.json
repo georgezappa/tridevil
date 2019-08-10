@@ -22,7 +22,10 @@
     "node",
     "three.js",
     "WEBGL",
-    "javascript"
+    "javascript",
+    "babel",
+    "jest",
+    "rollup"
   ],
   "bugs": {
     "url": "https://github.com/georgezappa/tridevil/issues"
