@@ -28,17 +28,28 @@
 
   <body>
     <h1 class="title">
-      <a href="https://discoverthreejs.com/">Discoverthreejs.com</a> - Ch 1.1
-      Your First Scene
+      <a href="https://discoverthreejs.com/">Discoverthreejs.com</a>Your First
+      Scene
     </h1>
 
     <div id="scene-container">
       <!-- This div will hold our scene-->
     </div>
     <!--
-      Finally, include the script that
-      runs your three.js app.
+      Finally, include the script that runs your three.js app.
     -->
     <script type="application/javascript" src="./build/bundle.js"></script>
+    <script>
+      // Check that service workers are supported
+      if ("serviceWorker" in navigator) {
+        console.log("Service workers are supported!");
+        // Use the window load event to keep the page load performant
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("./service-worker.js");
+        });
+      } else {
+        console.log("Service workers are NOT supported!!!");
+      }
+    </script>
   </body>
 </html>

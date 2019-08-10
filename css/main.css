@@ -1,4 +1,3 @@
-
 body {
   margin: 0px;
   overflow: hidden;
@@ -16,7 +15,7 @@ h1 {
 a {
   color: white;
 }
-a:hover{
+a:hover {
   color: purple;
 }
 
@@ -24,4 +23,17 @@ a:hover{
   position: absolute;
   width: 100%;
   height: 100%;
+}
+
+body {
+  /* make the body a flex container */
+  display: flex;
+  min-height: 100vh;
+}
+
+nav {
+  /* push the nav to the bottom of the flex container */
+  margin: auto;
+  margin-bottom: initial;
+  padding: 1rem;
 }

@@ -1,6 +1,6 @@
 {
   "name": "tridevil",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "My first attempt to create a WEBGL project using three.js",
   "main": "main.js",
   "author": "georgezappa",
