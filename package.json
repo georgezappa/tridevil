@@ -6,8 +6,9 @@
   "author": "georgezappa",
   "scripts": {
     "start": "serve ",
+    "build": "babel src -d public --copy-files",
     "oldbuild": "babel src -d public --copy-files && rollup -c rollout.config.js",
-    "build": "babel src -d public --copy-files && workbox injectManifest ./workbox-config.js && rollup -c rollout.config.js",
+    "newerbuild": "babel src -d public --copy-files && workbox injectManifest ./workbox-config.js && rollup -c rollout.config.js",
     "watch": "rollup -c -w",
     "dev": "npm-run-all --parallel build start watch",
     "deploy": "",
@@ -42,12 +43,6 @@
     "babel-jest": "^24.8.0",
     "install": "^0.13.0",
     "jest": "^24.8.0",
-    "npm": "^6.10.1",
-    "rollup": "^1.17.0",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-commonjs": "^9.2.1",
-    "rollup-plugin-node-resolve": "^4.0.1",
-    "rollup-plugin-terser": "^4.0.4",
     "serve": "^11.0.2"
   }
 }
