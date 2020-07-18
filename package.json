@@ -6,9 +6,9 @@
   "author": "georgezappa",
   "scripts": {
     "start": "serve ",
-    "build": "babel src -d public --copy-files",
-    "oldbuild": "babel src -d public --copy-files && rollup -c rollout.config.js",
-    "newerbuild": "babel src -d public --copy-files && workbox injectManifest ./workbox-config.js && rollup -c rollout.config.js",
+    "build": "babel src -d build --copy-files",
+    "oldbuild": "babel src -d build --copy-files && rollup -c rollout.config.js",
+    "newerbuild": "babel src -d build --copy-files && workbox injectManifest ./workbox-config.js && rollup -c rollout.config.js",
     "watch": "rollup -c -w",
     "dev": "npm-run-all --parallel build start watch",
     "deploy": "",
@@ -35,7 +35,9 @@
   "license": "MIT",
   "homepage": "https://github.com/georgezappa/tridevil#readme",
   "dependencies": {
-    "@babel/preset-env": "^7.5.5"
+    "@babel/preset-env": "^7.5.5",
+    "lodash": "^4.17.19",
+    "workbox": "^0.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
